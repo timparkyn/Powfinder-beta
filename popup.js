@@ -35,7 +35,7 @@ function getWeather(){
         var ul = document.getElementById("weatherList");
         var li = document.createElement("li");
         ul.appendChild(li).innerHTML =
-        '<span><b>' + location + '</b> ' + altitude + '  ' + temp_f + 'F  ' + weather_obs + '</span><br /><span>' + forecast + '</span><br /><span>Wind: ' + wind_string + ' ' + wind_mph + ' / ' + wind_dir + ' Gust ' + wind_gust_mph +'</span><br /><span>Precip 24hr: ' + precip_today + ' 1hr: ' + precip_1hr + '<br /><span>At: ' + time + '</span><hr />';
+        '<span><b>' + location + '</b> ' + altitude + '  ' + temp_f + 'F  ' + weather_obs + '</span><br /><span>' + forecast + '</span><br /><span>Wind: ' + wind_string + ' ' + wind_mph + ' / ' + wind_dir + ' Gust ' + wind_gust_mph +'</span><br /><span>Precip 24hr: ' + precip_today + ' 1hr: ' + precip_1hr + '<br /><span>At: ' + time + '</span><br /><br />';
         // <img src="' + conditions_icon + '">
       }
     }

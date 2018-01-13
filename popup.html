@@ -3,7 +3,7 @@
 <html>
   <head>
     <title>Powfinder.</title>
-    <!-- <script src="popup.css" type="text/css"></script> -->
+    <!-- <script src="popup.css"></script> -->
     <style type="text/css">
       body {
         margin: 10px;
@@ -21,17 +21,22 @@
         padding: 0;
       }
 
+      li{
+        font-size: 12px;
+        background-color: #AED6F1;
+      }
+
       #container {
         align-items: center;
-        display: flex;
+        /* display: flex; */
         justify-content: space-between;
       }
     </style>
     <script src="popup.js"></script>
     <script src="jquery-3.2.1.min.js"></script>
   </head>
-  <body>
-    <h2>Powfinder.</h2>
+  <body id="container">
+    <h3>Powfinder.</h3>
     <div>
       <ul id="weatherList">
       </ul>
