@@ -1,2 +1,2 @@
 # Powfinder
-Storm tracking for avid wintersportsperson
+Storm tracking for the avid wintersportsperson
