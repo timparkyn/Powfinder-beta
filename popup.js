@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function getWeather(){
-  const station = { "Kirkwood": "KCAMARKL11", "SugarBowl": "KCASODAS9", "SquAlpine": "KCAOLYMP3", "Mt. Rose": "KNVRENO352" };
+  const station = { "Kirkwood": "KCAKIRKW4", "SugarBowl": "KCASODAS9", "Squaw Valley": "MSIBSV", "Mt. Rose": "MRSMNV" };
 
   Object.keys(station).forEach(function(key){
     var xhr = new XMLHttpRequest();
@@ -27,7 +27,11 @@ function getWeather(){
         var precip_1hr = JSON.parse(xhr.responseText)['current_observation']['precip_1hr_in'];
         var precip_today = JSON.parse(xhr.responseText)['current_observation']['precip_today_in'];
 
-        var conditions_icon = JSON.parse(xhr.responseText)['current_observation']['icon_url'];
+        var fimg_0 = JSON.parse(xhr.responseText)['forecast']['txt_forecast']['forecastday'][0]['icon_url']
+        var fimg_1 = JSON.parse(xhr.responseText)['forecast']['txt_forecast']['forecastday'][1]['icon_url']
+        var fimg_2 = JSON.parse(xhr.responseText)['forecast']['txt_forecast']['forecastday'][2]['icon_url']
+        var fimg_3 = JSON.parse(xhr.responseText)['forecast']['txt_forecast']['forecastday'][3]['icon_url']
+        var fimg_4 = JSON.parse(xhr.responseText)['forecast']['txt_forecast']['forecastday'][4]['icon_url']
 
         var time = JSON.parse(xhr.responseText)['current_observation']['observation_time_rfc822'];
         time = time.slice(0, -9); // trim string for clarity
@@ -35,10 +39,12 @@ function getWeather(){
         var ul = document.getElementById("weatherList");
         var li = document.createElement("li");
         ul.appendChild(li).innerHTML =
-        '<span><b>' + location + '</b> ' + altitude + '  ' + temp_f + 'F  ' + weather_obs + '</span><br /><span>' + forecast + '</span><br /><span>Wind: ' + wind_string + ' ' + wind_mph + ' / ' + wind_dir + ' Gust ' + wind_gust_mph +'</span><br /><span>Precip 24hr: ' + precip_today + ' 1hr: ' + precip_1hr + '<br /><span>At: ' + time + '</span><br /><br />';
+        '<span><b>' + location + '</b> ' + altitude + '  ' + temp_f + 'F  ' + weather_obs + '</span><br /><span>' + forecast + '</span><br /><span>Wind: ' + wind_string + ' ' + wind_mph + ' / ' + wind_dir + ' Gust ' + wind_gust_mph +'</span><br /><span>Precip 24hr: ' + precip_today + ' 1hr: ' + precip_1hr + '<br /><span>At: ' + time + '</span><br /><img src="' + fimg_0 +'"><img src="' + fimg_1 + '"><img src="' + fimg_2 + '"><img src="' + fimg_3 + '"><img src="' + fimg_4 + '"><br /><br />';
         // <img src="' + conditions_icon + '">
+        // ul.applendChild(li).innerHTML = '<img src="' + fimg_0 +'"><img src="' + fimg_1 +'"><img src="' + fimg_2 +'">'
       }
     }
+
     xhr.send();
   })
 }
