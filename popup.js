@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
   getWeather();
-  console.log('dookie');
 });
 
 function getWeather(){
@@ -12,7 +11,6 @@ function getWeather(){
 
     xhr.onreadystatechange = function(){
       if (xhr.readyState == 4) {
-        console.log('ready state');
         var location = key;
         // var location = JSON.parse(xhr.responseText)['location']['city'];
         var temp_f = JSON.parse(xhr.responseText)['current_observation']['temp_f'];
